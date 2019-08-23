@@ -1,5 +1,5 @@
 const main = async () => {
-    const so_lan_lien_tuc = 3
+    const so_lan_lien_tuc = 2
 
     // de phong mang lag
     const buffer_time_ms = 4000
@@ -41,7 +41,7 @@ const main = async () => {
         return Math.floor(Math.random() * (max - min + 1)) + min
     }
 
-    const bet_00 = () => {
+    const random_bet = () => {
         document.querySelector(`#lottery__selector > div:nth-child(1) a:nth-child(${getRandomInt()})`).click()
         document.querySelector(`#lottery__selector > div:nth-child(2) a:nth-child(${getRandomInt()})`).click()
         bet__now.click()
@@ -117,7 +117,7 @@ const main = async () => {
     }
 
     clear_shades()
-    bet_00()
+    random_bet()
     const ds_kq = await lay_ds_ket_qua()
     const ket_qua_str = ds_kq.map(dm=>dm.winnumber.split(',')[0].slice(-2))
     const ket_qua_int = ket_qua_str.map(dm=>parseInt(dm))
@@ -128,12 +128,12 @@ const main = async () => {
     if (toan_chan) {
         log_with_time(`${so_lan_lien_tuc} dau chan lien tuc, bat dau cuoc le...`)
         await le_yolo(2)
-        log_with_time(`An roi, nghi chut da, tiep tuc choi sau ${so_lan_lien_tuc} luot xo nua...`)
+        log_with_time(`An roi, nghi chut da, tiep tuc choi sau ${buffer_time_ms/1000} giay...`)
         reset_main()
     } else if (toan_le) {
         log_with_time(`${so_lan_lien_tuc} dau le lien tuc, bat dau cuoc chan...`)
         await chan_yolo(2)
-        log_with_time(`An roi, nghi chut da, tiep tuc choi sau ${so_lan_lien_tuc} luot xo nua...`)
+        log_with_time(`An roi, nghi chut da, tiep tuc choi sau ${buffer_time_ms/1000} giay...`)
         reset_main()
     } else {
         log_with_time(`${so_lan_lien_tuc} dau khong lien tuc, cho luot xo tiep theo...`)
