@@ -33,9 +33,9 @@ const main = async () => {
                 break
         }
 
+        log_with_time(`Ban vua cuoc 50 so voi so tien ${so_tien.innerHTML} VND, dang doi ket qua...`)
         bet__now.click()
         btnsubmit__fastbet.click()
-        log_with_time(`Ban vua cuoc 50 so voi so tien ${so_tien.innerHTML} VND, dang doi ket qua...`)
     }
 
     const le_tat = () => {
